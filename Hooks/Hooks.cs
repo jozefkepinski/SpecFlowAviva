@@ -97,6 +97,9 @@ namespace SpecFlowAviva.Hooks
             //When scenario fails
             if (scenarioContext.TestError != null)
             {
+                var driver = _container.Resolve<IWebDriver>();
+                addScreenshot(driver, scenarioContext);
+
                 if (stepType == "Given")
                 {
                     _scenario.CreateNode<Given>(stepName).Fail(scenarioContext.TestError.Message);
