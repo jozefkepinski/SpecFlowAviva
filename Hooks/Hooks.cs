@@ -1,4 +1,5 @@
-﻿using AventStack.ExtentReports.Gherkin.Model;
+﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Gherkin.Model;
 using BoDi;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -98,19 +99,22 @@ namespace SpecFlowAviva.Hooks
             if (scenarioContext.TestError != null)
             {
                 var driver = _container.Resolve<IWebDriver>();
-                addScreenshot(driver, scenarioContext);
+                
 
                 if (stepType == "Given")
                 {
-                    _scenario.CreateNode<Given>(stepName).Fail(scenarioContext.TestError.Message);
+                    _scenario.CreateNode<Given>(stepName).Fail(scenarioContext.TestError.Message,
+                        MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver, scenarioContext)).Build());
                 }
                 else if (stepType == "When")
                 {
-                    _scenario.CreateNode<When>(stepName).Fail(scenarioContext.TestError.Message);
+                    _scenario.CreateNode<When>(stepName).Fail(scenarioContext.TestError.Message, 
+                        MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver, scenarioContext)).Build());
                 }
                 else if (stepType == "Then")
                 {
-                    _scenario.CreateNode<Then>(stepName).Fail(scenarioContext.TestError.Message);
+                    _scenario.CreateNode<Then>(stepName).Fail(scenarioContext.TestError.Message,
+                        MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver, scenarioContext)).Build());
                 }
             }
         }
