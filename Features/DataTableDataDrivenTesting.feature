@@ -1,4 +1,4 @@
-﻿Feature: Examples Data Driven Testing
+﻿Feature: DataTable Data Driven Testing
 
 A short summary of the feature is to go to Aviva web page and validate it.
 
@@ -6,7 +6,6 @@ A short summary of the feature is to go to Aviva web page and validate it.
 Scenario Outline: Examples Data Driven Testing
 	Given Open web browser
 	When Navigated to the Aviva home 
-    Then the title should be <title>
-	Examples: 
-	| title                                     |
+    Then the title should be
+	| Title                                    |
 	| Aviva corporate website - Aviva plc       |

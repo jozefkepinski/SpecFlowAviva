@@ -20,22 +20,22 @@ namespace SpecFlowAviva.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Examples Data Driven Testing")]
-    public partial class ExamplesDataDrivenTestingFeature
+    [NUnit.Framework.DescriptionAttribute("DataTable Data Driven Testing")]
+    public partial class DataTableDataDrivenTestingFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "ExamplesDataDrivenTesting.feature"
+#line 1 "DataTableDataDrivenTesting.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Examples Data Driven Testing", "A short summary of the feature is to go to Aviva web page and validate it.", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "DataTable Data Driven Testing", "A short summary of the feature is to go to Aviva web page and validate it.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,18 +76,11 @@ namespace SpecFlowAviva.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Examples Data Driven Testing")]
         [NUnit.Framework.CategoryAttribute("TestAvivaWebPage")]
-        [NUnit.Framework.TestCaseAttribute("Aviva corporate website - Aviva plc", null)]
-        public virtual void ExamplesDataDrivenTesting(string title, string[] exampleTags)
+        public virtual void ExamplesDataDrivenTesting()
         {
-            string[] @__tags = new string[] {
+            string[] tagsOfScenario = new string[] {
                     "TestAvivaWebPage"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("title", title);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Examples Data Driven Testing", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
@@ -115,8 +108,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.When("Navigated to the Aviva home", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Title"});
+                table1.AddRow(new string[] {
+                            "Aviva corporate website - Aviva plc"});
 #line 9
-    testRunner.Then(string.Format("the title should be {0}", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the title should be", ((string)(null)), table1, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

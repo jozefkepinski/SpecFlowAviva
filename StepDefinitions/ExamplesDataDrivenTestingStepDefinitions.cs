@@ -27,11 +27,6 @@ namespace SpecFlowAviva.StepDefinitions
             //}
 
         }
-
-        public record Titles
-        {
-            public string Title { get; set; }
-        }
     }
         
 }
