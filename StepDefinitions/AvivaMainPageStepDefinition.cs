@@ -15,7 +15,6 @@ namespace SpecFlowAviva.StepDefinitions
         {
             _driver = driver;
         }
-        // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
         
         [Given(@"Open web browser")]
         public void GivenOpenWebBrowser()
