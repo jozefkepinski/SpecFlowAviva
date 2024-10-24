@@ -1,9 +1,5 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.DevTools.V127.Network;
+﻿using OpenQA.Selenium;
 using SpecFlowAviva.Pages;
-using TechTalk.SpecFlow;
 
 
 namespace SpecFlowAviva.StepDefinitions
@@ -26,9 +22,5 @@ namespace SpecFlowAviva.StepDefinitions
             _mainPage = new MainPage(_driver);
             _mainPage.AcceptCookies();
         }
-
-
-
-
     }
 }
