@@ -1,6 +1,7 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
 using BoDi;
+using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using SpecFlowAviva.Utility;
@@ -11,6 +12,7 @@ namespace SpecFlowAviva.Hooks
     public sealed class Hooks : ExtentReport
     {
         private readonly IObjectContainer _container;
+        private IConfigurationRoot _configuration;
         public Hooks(IObjectContainer container)
         {
             _container = container;
@@ -53,6 +55,14 @@ namespace SpecFlowAviva.Hooks
         [BeforeScenario(Order = 1)]
         public void FirstBeforeScenario(ScenarioContext scenarioContext)
         {
+            _configuration = ConfigurationHelper.GetConfiguration();
+            Console.WriteLine("Conguration check: " + _configuration["AvivaPOC:URL"]);
+            //Working below
+            string param1 = Environment.GetEnvironmentVariable("url");
+            Console.WriteLine($"Parameter from CLI (hook): {param1}");
+            // Check if the environment variable is set; if not, use the default value from appsettings.json
+            string param2 = Environment.GetEnvironmentVariable("url") ?? _configuration["AvivaPOC:URL"];
+            Console.WriteLine("Parametr URL: " + param2);
             IWebDriver _driver = new ChromeDriver();
             _driver.Manage().Window.Maximize();
 

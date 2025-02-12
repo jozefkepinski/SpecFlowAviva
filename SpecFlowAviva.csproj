@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="ExtentReports" Version="5.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
     <PackageReference Include="Roslynator.Analyzers" Version="4.12.8">
       <PrivateAssets>all</PrivateAssets>
